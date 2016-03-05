@@ -1,0 +1,4 @@
+intro_crud:
+    resource: "@introCrudBundle/Resources/config/routing.yml"
+    prefix:   /
+
