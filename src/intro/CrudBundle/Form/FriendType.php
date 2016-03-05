@@ -17,6 +17,7 @@ class FriendType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
+            ->add('tel')
         ;
     }
     
