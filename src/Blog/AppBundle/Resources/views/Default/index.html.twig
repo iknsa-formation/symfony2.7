@@ -1,1 +1,66 @@
-Hello {{ name }}!
+{% extends 'BlogAppBundle:Default:layout.html.twig' %}
+
+{% block header %}
+    <h3>Extends</h3>
+    This part has been overriden
+{% endblock %}
+{% block body %}
+
+    <h3>Inclusion de fichier</h3>
+    {% include 'BlogAppBundle:Default:fileToInclude.html.twig' %}
+
+    -------------------------------------------------------------------------
+    <h3>Dates</h3>
+    {{ "now"|date(null, "Europe/Paris") }}
+    <br>
+    <br>
+    {{ "now"|date('D d/m/y H:i:s', "Europe/Paris") }}
+    <br>
+    <br>
+
+    -------------------------------------------------------------------------
+    <h3>Filtres</h3>
+    {% set myArray = ["alfred", '<i>hitchcock</i>', 'arsène', 'lupin'] %}
+    {% for nom in myArray %}
+        {{ loop.index }} => 
+                            <b>nom upper           </b>: {{ nom|upper }} ||
+                            <b>nom raw             </b>: {{ nom|raw }} ||
+                            <b>nom raw title       </b>: {{ nom|raw|title }} ||
+                            <b>nom striptags       </b>: {{ nom|striptags }} ||
+                            <b>nom striptags length</b>: {{ nom|striptags|length }} ||
+                            <b>nom length          </b>: {{ nom|length }} ||
+                            <br><br>
+    {% endfor %}
+    <br>
+    <br>
+
+    -------------------------------------------------------------------------
+    <h3>Boucle sur un tableau</h3>
+    {% set myArray = ["alfred", 'hitchcock', 'Arsène', 'Lupin'] %}
+    {% for nom in myArray %}
+        {{ loop.index }} => {{ nom }}<br>
+    {% endfor %}
+    <br>
+    <br>
+
+    -------------------------------------------------------------------------
+    <h3>Boucle</h3>
+    {% for i in range(0, 10, step=2) %}
+        {{ loop.index }} => {{ i }}<br>
+    {% endfor %}
+    <br>
+    <br>
+
+    -------------------------------------------------------------------------
+    <h3>Définir une variable</h3>
+    {% set myVariable = "Contenu d'une variable définie en tiwg" %}
+    {{ myVariable }}
+    <br>
+    <br>
+
+    -------------------------------------------------------------------------
+    <h3>Affiche du contenu</h3>
+    Hello {{ name }}!
+    <br>
+    <br>
+{% endblock %}
