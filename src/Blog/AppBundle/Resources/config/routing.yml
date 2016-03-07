@@ -1,3 +1,8 @@
+blog_app_homepage:
+    path:     /
+    defaults: { _controller: BlogAppBundle:App:index }
+    methods: GET
+
 blog_app_twig:
     path:     /twig/hello/{name}
     defaults: { _controller: BlogAppBundle:Default:index }
