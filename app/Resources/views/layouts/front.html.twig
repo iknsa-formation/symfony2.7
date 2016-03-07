@@ -14,10 +14,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="fonts/HelveticaNeue/font.css">
-        <link href="style.css" rel="stylesheet" media="screen"> 
-        <link href="responsive.css" rel="stylesheet" media="screen">        
+        <link rel="stylesheet" href="{{ asset('blog-template/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('blog-template/fonts/HelveticaNeue/font.css') }}">
+        <link href="{{ asset('blog-template/style.css') }}" rel="stylesheet" media="screen">
+        <link href="{{ asset('blog-template/responsive.css') }}" rel="stylesheet" media="screen">
     </head>
 
     <body id="scroll_top">
@@ -95,7 +95,7 @@
                         <div class="fix slider_top_border"></div>
                         <div class="slider">
                             
-                            
+
                         <!-- Jssor Slider Begin -->
                         <!-- You can move inline styles to css file or css block. -->
                         <div id="slider1_container" style="position: relative; width: 980px;height: 300px;">
@@ -105,7 +105,7 @@
                                 <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
                                     background-color: #000; top: 0px; left: 0px;width: 100%;height:100%;">
                                 </div>
-                                <div style="position: absolute; display: block; background: url(images/loading.gif) no-repeat center center;
+                                <div style="position: absolute; display: block; background: url({{ asset('blog-template/images/loading.gif') }}) no-repeat center center;
                                     top: 0px; left: 0px;width: 100%;height:100%;">
                                 </div>
                             </div>
@@ -113,61 +113,61 @@
                             <!-- Slides Container -->
                             <div id="myslides" u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px; height: 300px;overflow: hidden;">
                                 <div>
-                                    <a href="http://google.com"><img u="image" src="images/travel/01.jpg"/></a>
-                                    <img u="thumb" src="images/travel/thumb-01.jpg" />
+                                    <a href="http://google.com"><img u="image" src="{{ asset('blog-template/images/travel/01.jpg') }}"/></a>
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-01.jpg') }}" />
                                 </div>
                                 <div>
-                                    <a href="http://google.com"><img u="image" src="images/travel/02.jpg" /></a>
-                                    <img u="thumb" src="images/travel/thumb-02.jpg" />
+                                    <a href="http://google.com"><img u="image" src="{{ asset('blog-template/images/travel/02.jpg') }}" /></a>
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-02.jpg') }}" />
                                 </div>
                                 <div>
-                                    <a href="http://google.com"><img u="image" src="images/travel/03.jpg" /></a>
-                                    <img u="thumb" src="images/travel/thumb-03.jpg" />
+                                    <a href="http://google.com"><img u="image" src="{{ asset('blog-template/images/travel/03.jpg') }}" /></a>
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-03.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/04.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-04.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/04.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-04.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/05.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-05.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/05.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-05.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/06.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-06.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/06.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-06.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/07.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-07.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/07.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-07.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/08.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-08.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/08.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-08.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/09.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-09.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/09.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-09.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/10.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-10.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/10.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-10.jpg') }}" />
                                 </div>
 
                                 <div>
-                                    <img u="image" src="images/travel/11.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-11.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/11.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-11.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/12.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-12.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/12.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-12.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/13.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-13.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/13.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-13.jpg') }}" />
                                 </div>
                                 <div>
-                                    <img u="image" src="images/travel/14.jpg" />
-                                    <img u="thumb" src="images/travel/thumb-14.jpg" />
+                                    <img u="image" src="{{ asset('blog-template/images/travel/14.jpg') }}" />
+                                    <img u="thumb" src="{{ asset('blog-template/images/travel/thumb-14.jpg') }}" />
                                 </div>
                             </div>
                             
@@ -209,7 +209,7 @@
                                 <div class="fix single_content floatleft">
                                     <h2><span>Technology<span></h2>
                                     <div class="fix single_content_feature">
-                                        <a href=""><img src="images/feature.png" alt=""/></a>
+                                        <a href=""><img src="{{ asset('blog-template/images/feature.png') }}" alt=""/></a>
                                         <h3><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy Silicon Valley Sho,Dot-Com Frenzy Silicon Valley Sho</a></h3>
                                         <span>August 4 2010, <a href="">8 Comments</a></span>
                                         <p>Lorem ipsum ex vix illud naaconummy, novum tation et his. At vix scripta patrioque scribentur...</p>
@@ -219,7 +219,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4><a href="">Fly Fishers Serving as Transports for Noxious Little Invaders</a></h4>
@@ -230,7 +230,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4><a href="">Fly Fishers Serving as Transports for Noxious Little Invaders</a></h4>
@@ -241,7 +241,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4><a href="">Fly Fishers Serving as Transports for Noxious Little Invaders</a></h4>
@@ -258,7 +258,7 @@
                                 <div class="fix single_content floatleft">
                                     <h2><span>Technology<span></h2>
                                     <div class="fix single_content_feature">
-                                        <a href=""><img src="images/feature.png" alt=""/></a>
+                                        <a href=""><img src="{{ asset('blog-template/images/feature.png') }}" alt=""/></a>
                                         <h3><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy Silicon Valley Sho,Dot-Com Frenzy Silicon Valley Sho</a></h3>
                                         <span>August 4 2010, <a href="">8 Comments</a></span>
                                         <p>Lorem ipsum ex vix illud naaconummy, novum tation et his. At vix scripta patrioque scribentur...</p>
@@ -268,7 +268,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -279,7 +279,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -290,7 +290,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -305,7 +305,7 @@
                                 <div class="fix single_content floatleft">
                                     <h2><span>Technology<span></h2>
                                     <div class="fix single_content_feature">
-                                        <a href=""><img src="images/feature.png" alt=""/></a>
+                                        <a href=""><img src="{{ asset('blog-template/images/feature.png') }}" alt=""/></a>
                                         <h3><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy Silicon Valley Sho,Dot-Com Frenzy Silicon Valley Sho</a></h3>
                                         <span>August 4 2010, <a href="">8 Comments</a></span>
                                         <p>Lorem ipsum ex vix illud naaconummy, novum tation et his. At vix scripta patrioque scribentur...</p>
@@ -315,7 +315,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -326,7 +326,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -337,7 +337,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -352,7 +352,7 @@
                                 <div class="fix single_content floatleft">
                                     <h2><span>Technology<span></h2>
                                     <div class="fix single_content_feature">
-                                        <a href=""><img src="images/feature.png" alt=""/></a>
+                                        <a href=""><img src="{{ asset('blog-template/images/feature.png') }}" alt=""/></a>
                                         <h3><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy Silicon Valley Sho,Dot-Com Frenzy Silicon Valley Sho</a></h3>
                                         <span>August 4 2010, <a href="">8 Comments</a></span>
                                         <p>Lorem ipsum ex vix illud naaconummy, novum tation et his. At vix scripta patrioque scribentur...</p>
@@ -362,7 +362,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -373,7 +373,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -384,7 +384,7 @@
                                         <li>
                                             <div class="fix single_home_content">
                                                 <div class="fix single_home_content_img">
-                                                    <img src="images/small_feature.png" alt=""/>
+                                                    <img src="{{ asset('blog-template/images/small_feature.png') }}" alt=""/>
                                                 </div>
                                                 <div class="single_home_content_title">
                                                     <h4>Fly Fishers Serving as Transports for Noxious Little Invaders</h4>
@@ -400,7 +400,7 @@
                                     <h2><span>Latest Posts</span></h2>
                                     <div class="fix single_latest_post">
                                         <div class="fix latest_post_img floatleft">
-                                            <img src="images/blog_post_img.png" alt=""/>
+                                            <img src="{{ asset('blog-template/images/blog_post_img.png') }}" alt=""/>
                                         </div>
                                         <div class="fix latest_post_title floatright">
                                             <h2><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h2>
@@ -410,7 +410,7 @@
                                     </div>
                                     <div class="fix single_latest_post">
                                         <div class="fix latest_post_img floatleft">
-                                            <img src="images/blog_post_img.png" alt=""/>
+                                            <img src="{{ asset('blog-template/images/blog_post_img.png') }}" alt=""/>
                                         </div>
                                         <div class="fix latest_post_title floatright">
                                             <h2><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h2>
@@ -420,7 +420,7 @@
                                     </div>
                                     <div class="fix single_latest_post">
                                         <div class="fix latest_post_img floatleft">
-                                            <img src="images/blog_post_img.png" alt=""/>
+                                            <img src="{{ asset('blog-template/images/blog_post_img.png') }}" alt=""/>
                                         </div>
                                         <div class="fix latest_post_title floatright">
                                             <h2><a href="">Silicon Valley Shows Signs of Dot-Com Frenzy</a></h2>
@@ -543,9 +543,9 @@
         </section>
         <script src="http://code.jquery.com/jquery.js"></script>
         <!-- Jessor slider Start-->
-    <script type="text/javascript" src="js/jssor.core.js"></script>
-    <script type="text/javascript" src="js/jssor.utils.js"></script>
-    <script type="text/javascript" src="js/jssor.slider.js"></script>
+    <script type="text/javascript" src="{{ asset('blog-template/js/jssor.core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('blog-template/js/jssor.utils.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('blog-template/js/jssor.slider.js') }}"></script>
     <script>
         jQuery(document).ready(function ($) {
             var options = {
@@ -599,7 +599,7 @@
         });
     </script>
         <!-- Jessor slider End-->
-        <script type="text/javascript" src="js/selectnav.min.js"></script>
+        <script type="text/javascript" src="{{ asset('blog-template/js/selectnav.min.js') }}"></script>
         <script type="text/javascript">
             selectnav('nav', {
               label: '-Navigation-',
