@@ -1,0 +1,3 @@
+blog_post_homepage:
+    path: /post/
+    defaults: { _controller: BlogPostBundle:Post:index}
