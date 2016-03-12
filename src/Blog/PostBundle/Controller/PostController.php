@@ -15,7 +15,6 @@ class PostController extends Controller
     public function newAction()
     {
         $entity = new Post;
-
         $form = $this->createFormBuilder($entity)
 
             ->add('title')
@@ -26,10 +25,11 @@ class PostController extends Controller
             ->add('user')
             ->add('submit', 'submit', array('label' => 'Create'))
 
-            ->getForm();
+            ->getForm()
+            ->createView();
 
         return $this->render('BlogPostBundle:post:new.html.twig', array(
-            'form'   => $form->createView(),
+            'form'   => $form,
         ));
     }
 }
