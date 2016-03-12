@@ -26,7 +26,7 @@ class PostController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('blog_post_new'));
+            return $this->redirect($this->generateUrl('blog_post_homepage'));
         }
 
         return $this->render('BlogPostBundle:post:new.html.twig', array(
@@ -51,7 +51,7 @@ class PostController extends Controller
 
             ->getForm();
 
-            return $form;
+        return $form;
     }
 
     public function newAction()
