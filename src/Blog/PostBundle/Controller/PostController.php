@@ -5,6 +5,7 @@ namespace Blog\PostBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\PostBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
+use Blog\PostBundle\Form\PostType;
 
 class PostController extends Controller
 {
@@ -37,19 +38,12 @@ class PostController extends Controller
 
     public function createCreateForm($entity)
     {
-        $form = $this->createFormBuilder($entity)
+        $form = $this->createForm(new PostType, $entity, array(
+                'action' => $this->generateUrl('blog_post_create'),
+                'method' => 'POST'
+            ));
 
-            ->setAction($this->generateUrl('blog_post_create'))
-            ->setMethod('POST')
-            ->add('title')
-            ->add('summary')
-            ->add('content')
-            ->add('image')
-            ->add('created_at')
-            ->add('user')
-            ->add('submit', 'submit', array('label' => 'Create'))
-
-            ->getForm();
+        $form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
