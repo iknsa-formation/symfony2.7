@@ -29,7 +29,6 @@ class PostController extends Controller
             ->getForm();
 
         return $this->render('BlogPostBundle:post:new.html.twig', array(
-            'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
