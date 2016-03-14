@@ -23,7 +23,7 @@ class Post
     protected $title;
 
     /**
-     * @ORM\Column(name="summary", type="string", length=255)
+     * @ORM\Column(name="summary", type="string", length=255, nullable=true)
      */
     protected $summary;
 
