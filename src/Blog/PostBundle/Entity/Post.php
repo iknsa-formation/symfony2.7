@@ -43,7 +43,7 @@ class Post
     protected $image;
 
     /**
-     * @ORM\Column(name="user", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Blog\AppBundle\Entity\User")
      */
     protected $user;
 
@@ -185,11 +185,11 @@ class Post
     /**
      * Set user
      *
-     * @param string $user
+     * @param \Blog\AppBundle\Entity\User $user
      *
      * @return Post
      */
-    public function setUser($user)
+    public function setUser(\Blog\AppBundle\Entity\User $user)
     {
         $this->user = $user;
 
@@ -199,7 +199,7 @@ class Post
     /**
      * Get user
      *
-     * @return string
+     * @return \Blog\AppBundle\Entity\User
      */
     public function getUser()
     {
