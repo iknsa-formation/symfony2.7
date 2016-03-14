@@ -47,6 +47,11 @@ class Post
      */
     protected $user;
 
+    public function __construct()
+    {
+        $this->created_at = new \Datetime;
+    }
+
     /**
      * Get id
      *
