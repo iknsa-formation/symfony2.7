@@ -36,7 +36,7 @@ class PostController extends Controller
         ));
     }
 
-    public function createCreateForm($entity)
+    public function createCreateForm(Post $entity)
     {
         $form = $this->createForm(new PostType, $entity, array(
                 'action' => $this->generateUrl('blog_post_create'),
