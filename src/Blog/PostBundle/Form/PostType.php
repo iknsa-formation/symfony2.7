@@ -13,7 +13,7 @@ class PostType extends AbstractType
             ->add('title')
             ->add('summary')
             ->add('content')
-            ->add('image')
+            ->add('file')
         ;
     }
 
