@@ -50,6 +50,9 @@ class Post
      */
     protected $user;
 
+    /**
+     * Just a property which is not a doctrine mapped property
+     */
     private $temp;
 
     /**
