@@ -13,3 +13,4 @@
 /app/phpunit.xml
 
 /composer.lock
+web/uploads/

@@ -41,11 +41,6 @@ class Post
     protected $created_at;
 
     /**
-     * @ORM\Column(name="image", type="string", length=255)
-     */
-    protected $image;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Blog\AppBundle\Entity\User")
      */
     protected $user;
@@ -54,6 +49,11 @@ class Post
      * Just a property which is not a doctrine mapped property
      */
     private $temp;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $extension;
 
     /**
      * @Assert\File(maxSize="6000000")
@@ -172,30 +172,6 @@ class Post
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Post
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
      * Set user
      *
      * @param \Blog\AppBundle\Entity\User $user
@@ -217,6 +193,27 @@ class Post
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->extension
+            ? null
+            : $this->getUploadDir().'/'.$this->extension;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/pictures';
     }
 
     /**
@@ -241,38 +238,10 @@ class Post
         if (is_file($this->getAbsolutePath())) {
             // store the old name to delete after the update
             $this->temp = $this->getAbsolutePath();
-            $this->image = null;
+            $this->extension = null;
         } else {
-            $this->image = 'initial';
+            $this->extension = 'initial';
         }
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->image
-            ? null
-            : $this->getUploadRootDir().'/'.$this->id.'.'.$this->image;
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->image
-            ? null
-            : $this->getUploadDir().'/'.$this->image;
-    }
-
-    protected function getUploadRootDir()
-    {
-        // the absolute directory path where uploaded
-        // documents should be saved
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    protected function getUploadDir()
-    {
-        // get rid of the __DIR__ so it doesn't screw up
-        // when displaying uploaded doc/image in the view.
-        return 'uploads/pictures';
     }
 
     /**
@@ -282,7 +251,7 @@ class Post
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-            $this->image = $this->getFile()->guessExtension();
+            $this->extension = $this->getFile()->guessExtension();
         }
     }
 
@@ -331,5 +300,12 @@ class Post
         if (isset($this->temp)) {
             unlink($this->temp);
         }
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->extension
+            ? null
+            : $this->getUploadRootDir().'/'.$this->id.'.'.$this->extension;
     }
 }
