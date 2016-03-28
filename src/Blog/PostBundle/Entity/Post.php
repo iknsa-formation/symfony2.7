@@ -195,6 +195,18 @@ class Post
         return $this->user;
     }
 
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
     public function getWebPath()
     {
         return null === $this->extension
