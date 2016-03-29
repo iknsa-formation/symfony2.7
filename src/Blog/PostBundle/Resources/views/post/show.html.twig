@@ -1,0 +1,7 @@
+<p>{{ entity.title }}</p>
+<p>{{ entity.summary }}</p>
+<p>{{ entity.content }}</p>
+<p>{{ entity.user }}</p>
+<p>
+    <img src="{{ asset("uploads/pictures/#{entity.id}.") ~ entity.extension }}" style="max-height:250px;">
+</p>

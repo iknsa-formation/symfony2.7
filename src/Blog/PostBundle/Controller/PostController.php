@@ -59,4 +59,19 @@ class PostController extends Controller
             'form'   => $form->createView(),
         ));
     }
+
+    public function showAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BlogPostBundle:Post')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Post entity.');
+        }
+
+        return $this->render('BlogPostBundle:post:show.html.twig', array(
+            'entity'      => $entity,
+        ));
+    }
 }
