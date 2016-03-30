@@ -74,4 +74,62 @@ class PostController extends Controller
             'entity'      => $entity,
         ));
     }
+
+    public function editAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository("BlogPostBundle:Post")->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException('Unable to find Post Entity');
+        }
+
+        $editForm = $this->createForm(new PostType(), $entity, array(
+            'action' => $this->generateUrl('blog_post_update', array(
+                'id' => $id
+            )),
+            'method' => 'PUT'
+        ));
+
+        $editForm->add('submit', 'submit', array('label' => 'Update'));
+
+        return $this->render("BlogPostBundle:post:edit.html.twig", array(
+                'entity' => $entity,
+                'edit_form' => $editForm->createView()
+            ));
+    }
+
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BlogPostBundle:Post')->find($id);
+
+        if(!$entity) {
+            throw $this->createNotFoundException('Unable to find Post entity');
+        }
+
+        $editForm = $this->createForm(new PostType(), $entity, array(
+            'action' => $this->generateUrl('blog_post_update', array(
+                'id' => $id
+            )),
+            'method' => 'PUT'
+        ));
+
+        $editForm->add('submit', 'submit', array('label' => 'Update'));
+
+        $editForm->handleRequest($request);
+
+        if($editForm->isValid()) {
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('blog_post_show', array('id' => $id)));
+        }
+
+        return $this->render('BlogPostBundle:post:edit.html.twig', array(
+            'entity' => $entity,
+            'edit_form' => $editForm->createView()
+        ));
+    }
 }

@@ -13,3 +13,11 @@ blog_post_create:
 blog_post_show:
     path: /post/{id}
     defaults: { _controller: BlogPostBundle:Post:show }
+
+blog_post_edit:
+    path:     post/{id}/edit
+    defaults: { _controller: BlogPostBundle:Post:edit }
+
+blog_post_update:
+    path:     post/{id}/update
+    defaults: { _controller: BlogPostBundle:Post:update }
