@@ -85,19 +85,26 @@ class PostController extends Controller
             throw $this->createNotFoundException('Unable to find Post Entity');
         }
 
+        $editForm = $this->createEditForm($entity);
+
+        return $this->render("BlogPostBundle:post:edit.html.twig", array(
+                'entity' => $entity,
+                'edit_form' => $editForm->createView()
+            ));
+    }
+
+    public function createEditForm(Post $entity)
+    {
         $editForm = $this->createForm(new PostType(), $entity, array(
             'action' => $this->generateUrl('blog_post_update', array(
-                'id' => $id
+                'id' => $entity->getId()
             )),
             'method' => 'PUT'
         ));
 
         $editForm->add('submit', 'submit', array('label' => 'Update'));
 
-        return $this->render("BlogPostBundle:post:edit.html.twig", array(
-                'entity' => $entity,
-                'edit_form' => $editForm->createView()
-            ));
+        return $editForm;
     }
 
     public function updateAction(Request $request, $id)
@@ -110,14 +117,7 @@ class PostController extends Controller
             throw $this->createNotFoundException('Unable to find Post entity');
         }
 
-        $editForm = $this->createForm(new PostType(), $entity, array(
-            'action' => $this->generateUrl('blog_post_update', array(
-                'id' => $id
-            )),
-            'method' => 'PUT'
-        ));
-
-        $editForm->add('submit', 'submit', array('label' => 'Update'));
+        $editForm = $this->createEditForm($entity);
 
         $editForm->handleRequest($request);
 
