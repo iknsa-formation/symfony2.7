@@ -132,4 +132,29 @@ class PostController extends Controller
             'edit_form' => $editForm->createView()
         ));
     }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $deleteForm = $this->createFormBuilder()
+            ->setAction($this->generateUrl('blog_post_delete', array('id' => $id)))
+            ->setMethod('DELETE');
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm();
+        
+        $deleteForm->handleRequest($request);
+
+        if($deleteForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('BlogPostBundle:Post')->find($id);
+
+            if(!$entity) {
+                throw $this->createNotFoundException('Unable to find post entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('blog_post_homepage'));
+    }
 }
