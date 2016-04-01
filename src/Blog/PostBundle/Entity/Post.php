@@ -310,7 +310,9 @@ class Post
     public function removeUpload()
     {
         if (isset($this->temp)) {
-            unlink($this->temp);
+            if(is_file($this->temp)) {
+                unlink($this->temp);
+            }
         }
     }
 
