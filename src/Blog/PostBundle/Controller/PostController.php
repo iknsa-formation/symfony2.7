@@ -86,10 +86,12 @@ class PostController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
+        $deleteForm = $this->createDeleteForm($id);
 
         return $this->render("BlogPostBundle:post:edit.html.twig", array(
                 'entity' => $entity,
-                'edit_form' => $editForm->createView()
+                'edit_form' => $editForm->createView(),
+                'delete_form' => $deleteForm->createView()
             ));
     }
 
@@ -135,11 +137,7 @@ class PostController extends Controller
 
     public function deleteAction(Request $request, $id)
     {
-        $deleteForm = $this->createFormBuilder()
-            ->setAction($this->generateUrl('blog_post_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
+        $deleteForm = $this->createDeleteForm($id);
         
         $deleteForm->handleRequest($request);
 
@@ -154,9 +152,16 @@ class PostController extends Controller
             $em->remove($entity);
             $em->flush();
     
-            return $this->redirect($this->generateUrl('blog_post_homepage'));
         }
+        return $this->redirect($this->generateUrl('blog_post_homepage'));
+    }
 
-        return $this->render('BlogPostBundle:post:delete.html.twig', array('form' => $deleteForm->createView()));
+    public function createDeleteForm($id)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('blog_post_delete', array('id' => $id)))
+            ->setMethod('DELETE')
+            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->getForm();
     }
 }
