@@ -137,7 +137,7 @@ class PostController extends Controller
     {
         $deleteForm = $this->createFormBuilder()
             ->setAction($this->generateUrl('blog_post_delete', array('id' => $id)))
-            ->setMethod('DELETE');
+            ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
         
@@ -153,8 +153,10 @@ class PostController extends Controller
 
             $em->remove($entity);
             $em->flush();
+    
+            return $this->redirect($this->generateUrl('blog_post_homepage'));
         }
 
-        return $this->redirect($this->generateUrl('blog_post_homepage'));
+        return $this->render('BlogPostBundle:post:delete.html.twig', array('form' => $deleteForm->createView()));
     }
 }

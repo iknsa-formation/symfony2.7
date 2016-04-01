@@ -21,3 +21,7 @@ blog_post_edit:
 blog_post_update:
     path:     post/{id}/update
     defaults: { _controller: BlogPostBundle:Post:update }
+
+blog_post_delete:
+    path:     post/{id}/delete
+    defaults: { _controller: BlogPostBundle:Post:delete }
