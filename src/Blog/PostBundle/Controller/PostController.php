@@ -11,7 +11,11 @@ class PostController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BlogPostBundle:post:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $posts = $em->getRepository('BlogPostBundle:Post')->findAll();
+
+        return $this->render('BlogPostBundle:post:index.html.twig', array('posts' => $posts));
     }
 
     public function createAction(Request $request)
