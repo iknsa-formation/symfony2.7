@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blog\PostBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 use Blog\PostBundle\Form\PostType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
 
         $posts = $em->getRepository('BlogPostBundle:Post')->findLastThree();
 
-        return $this->render('BlogPostBundle:post:index.html.twig', array('posts' => $posts));
+        return new JsonResponse(array('posts' => $posts));
     }
 
     public function createAction(Request $request)
