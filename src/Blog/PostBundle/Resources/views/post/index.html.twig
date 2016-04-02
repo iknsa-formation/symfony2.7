@@ -1,19 +1,13 @@
 {% for post in posts %}
     <div>
         <p>
-            {{ post.id }}
-        </p>
-        <p>
             {{ post.title }}
         </p>
         <p>
             {{ post.summary }}
         </p>
         <p>
-            {{ post.content }}
-        </p>
-        <p>
-            {{ post.user.email }}
+            {{ post.email }}
         </p>  
         <p>
             <img src="{{ asset("uploads/pictures/#{post.id}.") ~ post.extension }}" style="max-height:250px;">

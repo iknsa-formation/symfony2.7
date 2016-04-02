@@ -13,7 +13,7 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $posts = $em->getRepository('BlogPostBundle:Post')->findAll();
+        $posts = $em->getRepository('BlogPostBundle:Post')->findLastThree();
 
         return $this->render('BlogPostBundle:post:index.html.twig', array('posts' => $posts));
     }
