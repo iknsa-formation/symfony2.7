@@ -14,10 +14,6 @@ blog_post_create:
     path: /post/create
     defaults: { _controller: BlogPostBundle:Post:create }
 
-blog_post_create_comment:
-    path: /post/{id}/create/comment
-    defaults: { _controller: BlogPostBundle:Post:createComment }
-
 blog_post_show:
     path: /post/{id}
     defaults: { _controller: BlogPostBundle:Post:show }
@@ -33,3 +29,7 @@ blog_post_update:
 blog_post_delete:
     path:     post/{id}/delete
     defaults: { _controller: BlogPostBundle:Post:delete }
+
+blog_post_create_comment:
+    path: /post/{id}/comment/create
+    defaults: { _controller: BlogPostBundle:Post:createComment }
