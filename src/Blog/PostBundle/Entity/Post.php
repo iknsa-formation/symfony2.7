@@ -53,7 +53,7 @@ class Post
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public $extension;
+    protected $extension;
 
     /**
      * @Assert\File(maxSize="6000000")

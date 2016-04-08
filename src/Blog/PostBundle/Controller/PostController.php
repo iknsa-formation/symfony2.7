@@ -7,16 +7,29 @@ use Blog\PostBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 use Blog\PostBundle\Form\PostType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Blog\CommentBundle\Entity\Comment;
+use Blog\CommentBundle\Form\CommentType;
 
 class PostController extends Controller
 {
-    public function indexAction()
+    public function indexApiAction()
     {
         $em = $this->getDoctrine()->getManager();
 
         $posts = $em->getRepository('BlogPostBundle:Post')->findLastThree();
 
         return new JsonResponse(array('posts' => $posts));
+    }
+
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $posts = $em->getRepository('BlogPostBundle:Post')->findLastThree();
+
+        return $this->render('BlogPostBundle:post:index.html.twig', array(
+            'posts' => $posts
+        ));
     }
 
     public function createAction(Request $request)
@@ -71,12 +84,19 @@ class PostController extends Controller
 
         $entity = $em->getRepository('BlogPostBundle:Post')->find($id);
 
+        $comments = $em->getRepository('BlogCommentBundle:Comment')->findByPost($entity);
+
+        $comment = new Comment;
+        $commentForm = $this->createCommentCreateForm($comment, $id);
+
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Post entity.');
         }
 
         return $this->render('BlogPostBundle:post:show.html.twig', array(
             'entity'      => $entity,
+            'comments'      => $comments,
+            'commentForm' => $commentForm->createView()
         ));
     }
 
@@ -168,5 +188,38 @@ class PostController extends Controller
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm();
+    }
+
+    public function createCommentCreateForm(Comment $entity, $id)
+    {
+        $form = $this->createForm(new CommentType, $entity, array(
+                'action' => $this->generateUrl('blog_post_create_comment', array('id' => $id)),
+                'method' => 'POST'
+            ));
+
+        $form->add('submit', 'submit', array('label' => 'Create'));
+
+        return $form;
+    }
+
+    public function createCommentAction(Request $request, $id)
+    {
+        $entity = new Comment;
+
+        $form = $this->createCommentCreateForm($entity, $id);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid() && $this->getUser() !== null) {
+            $em = $this->getDoctrine()->getManager();
+
+            $entity->setPost($em->getRepository('BlogPostBundle:Post')->find($id));
+            $entity->setUser($this->getUser());
+
+            $em->persist($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($request->headers->get('referer'));
     }
 }

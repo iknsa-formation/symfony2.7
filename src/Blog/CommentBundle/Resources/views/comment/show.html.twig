@@ -1,0 +1,11 @@
+<div>
+    <p>
+        {{ comment.content }}
+    </p>
+    <p>
+        {{ comment.user.username }}
+    </p>
+    <p>
+        {{ comment.createdAt|date('H-i-s') }}
+    </p>
+</div>

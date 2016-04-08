@@ -1,7 +1,7 @@
 {% for post in posts %}
     <div>
         <p>
-            {{ post.title }}
+            <a href="{{ path('blog_post_show', {id: post.id} ) }}">{{ post.title }}</a>
         </p>
         <p>
             {{ post.summary }}

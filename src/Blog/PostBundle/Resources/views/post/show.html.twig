@@ -5,3 +5,15 @@
 <p>
     <img src="{{ asset("uploads/pictures/#{entity.id}.") ~ entity.extension }}" style="max-height:250px;">
 </p>
+
+<hr>
+{% for comment in comments %}
+    <p>
+        {{ loop.index }} => {{ comment.content|raw }}
+        <br>  [{{ comment.user.username }}] | {{ comment.createdAt|date('H i') }}
+    </p>
+    ---------------------------------------------------------------------------------
+{% endfor %}
+<hr>
+
+{{ form(commentForm) }}
